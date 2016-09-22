@@ -16,7 +16,7 @@ p, h1 {
   color: white;
 }
 
-#logo {
+#logo  {
   width:30%;
   display: block;
   margin-left: auto;
@@ -25,4 +25,16 @@ p, h1 {
 
 #container {
   background-color: black;
+}
+
+#results {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#imgFinal {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
