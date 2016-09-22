@@ -54,25 +54,25 @@
     </div>
   </div>
   <div id = "results">
-    <center><p>Your style is <b><i>GLAMOROUS!</b></i></p>
+    <center><p id = "textA">Your style is <b><i>GLAMOROUS!</b></i></p>
     <p><a href=“https://www.net-a-porter.com/gb/en/product/754795”> Click here to shop your style! </a></p>
 
 
-    <p>Your style is <b><i>ACTIVE! </b></i></p>
+    <p id = "textB">Your style is <b><i>ACTIVE! </b></i></p>
     <p><a href=“https://www.net-a-porter.com/gb/en/product/791478”> Click here to shop your style! </a></p>
 
 
-    <p>Your style is <b><i>WORKWEAR!</b></i></p>
+    <p id = "textC">Your style is <b><i>WORKWEAR!</b></i></p>
     <p><a href=“https://www.net-a-porter.com/gb/en/product/752325”> Click here to shop your style! </a></p>
 
 
-    <p>Your style is <b><i>HOMELY!</b></i></p>
+    <p id = "textD">Your style is <b><i>HOMELY!</b></i></p>
     <p><a href=“https://www.net-a-porter.com/gb/en/product/750865”> Click here to shop your style! </a></p>
     </center>
 
     <div class="col-xs-6 col-md-6 resultsPage">
       <a href="#" class="thumbnail">
-      <img id= "img4" src="images/6a.jpg" alt="answer-1">
+      <img id= "imgFinal" src="" alt="answer-1">
      </a>
     </div>
 
@@ -92,6 +92,7 @@
       var d = 0;
 
       var questionNumb = 1;
+      var finalAnswer = "";
 
       var questions={
         question1:"1) What would be your footwear of choice for a rainy winter day?",
@@ -133,7 +134,7 @@
         } else {
           document.getElementById('allMain').style.display = 'none';
           document.getElementById('results').style.display = 'block';
-          finalResult();
+          setResult();
         }
 
       }
@@ -153,18 +154,18 @@
 
       }
 
-      function finalResult () {
-        var total = Math.max(a, b, c, d));
+      function setResult () {
+        var total = Math.max(a, b, c, d);
         if (total === a) {
-          
+          finalAnswer = "a";
         } else if (total === b) {
-
+          finalAnswer = "b";
         } else if (total === c) {
-
+          finalAnswer = "c";
         } else { //d
-
+          finalAnswer = "d";
         }
-
+        document.getElementById('imgFinal').src = 'images/6'+finalAnswer+'.jpg';
 
       }
 
