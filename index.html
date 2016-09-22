@@ -21,7 +21,7 @@
   </div>
   <div class="row">
      <div class="col-md-12"><!-- Question -->
-       <h2 id="#"> What would be your footwear of choice for a rainy winter day? </h2>
+       <h2 id="question"> What would be your footwear of choice for a rainy winter day? </h2>
      </div>
   </div>
 
@@ -29,28 +29,28 @@
 
       <div class="col-xs-6 col-md-3">
         <a href="#" class="thumbnail">
-        <img id= "q1a1" src="https://cache.net-a-porter.com/images/products/802965/802965_in_pp.jpg" alt="answer-1">
+        <img id= "img1" src="images/1a.jpg" alt="answer-1" onclick="nextQ('img1')">
        </a>
      </div>
 
        <div class="col-xs-6 col-md-3">
          <a href="#" class="thumbnail">
-         <img id= "q1a2" src="https://cache.net-a-porter.com/images/products/802965/802965_in_pp.jpg" alt="answer-1">
+         <img id= "img2" src="images/1b.jpg" alt="answer-1" onclick="nextQ('img2')">
         </a>
       </div>
 
       <div class="col-xs-6 col-md-3">
         <a href="#" class="thumbnail">
-        <img id= "q1a3" src="https://cache.net-a-porter.com/images/products/802965/802965_in_pp.jpg" alt="answer-1">
+        <img id= "img3" src="images/1c.jpg" alt="answer-1" onclick="nextQ('img3')">
        </a>
      </div>
 
        <div class="col-xs-6 col-md-3">
          <a href="#" class="thumbnail">
-         <img id= "q1a4" src="https://cache.net-a-porter.com/images/products/802965/802965_in_pp.jpg" alt="answer-1">
+         <img id= "img4" src="images/1d.jpg" alt="answer-1" onclick="nextQ('img4')">
         </a>
       </div>
-      
+
   </div>
 
 </div>
@@ -58,6 +58,53 @@
 
 
   <script>
+
+      var a = 0;
+      var b = 0;
+      var c = 0;
+      var d = 0;
+
+      var questionNumb = 1;
+
+      function nextQ (name) {
+        if (name === 'img1') {
+            a = a + 1;
+            console.log('test----a'+a);
+
+        }
+        else if (name === 'img2') {
+            b = b + 1;
+            console.log('test----b'+b);
+
+        }
+        else if (name === 'img3') {
+            c = c + 1;
+            console.log('test----c'+c);
+
+        }
+        else {
+            d = d + 1;
+            console.log('test----d'+d);
+        }
+        questionNumb = questionNumb + 1;
+
+        console.log('test--qnumber'+questionNumb);
+
+        document.getElementById('question').innerHTML = ''
+        document.getElementById('img1').src = 'images/'+questionNumb+'a.jpg';
+        document.getElementById('img2').src = 'images/'+questionNumb+'b.jpg';
+        document.getElementById('img3').src = 'images/'+questionNumb+'c.jpg';
+        document.getElementById('img4').src = 'images/'+questionNumb+'d.jpg';
+
+      }
+
+      var questions={
+      	question2:"How do you travel to work?",
+      	question3:"What type of activities do you do?",
+      	question4:"Where is your ideal holiday destination?",
+      	question5:"What is your ideal evening?",
+      };
+
 
   </script>
 </body>
