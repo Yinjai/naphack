@@ -5,7 +5,7 @@
   <title>Find your style</title>
   <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
-  <!-- <link rel="stylesheet" href="css/main.css"> -->
+  <link rel="stylesheet" href="style.css">
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> <!-- To stop pound signs showing up like weird characters -->
 </head>
 
@@ -19,37 +19,64 @@
        <h1> Find your style! </h1>
      </div>
   </div>
-  <div class="row">
-     <div class="col-md-12"><!-- Question -->
-       <h2 id="question"> What would be your footwear of choice for a rainy winter day? </h2>
-     </div>
+  <div id = "allMain">
+    <div class="row">
+       <div class="col-md-12"><!-- Question -->
+         <h2 id="question">  </h2>
+       </div>
+    </div>
+
+    <div class="row"><!-- Answer -->
+
+        <div class="col-xs-6 col-md-3">
+          <a href="#" class="thumbnail">
+          <img id= "img1" src="" alt="answer-1" onclick="nextQ('img1')">
+         </a>
+       </div>
+
+         <div class="col-xs-6 col-md-3">
+           <a href="#" class="thumbnail">
+           <img id= "img2" src="" alt="answer-1" onclick="nextQ('img2')">
+          </a>
+        </div>
+
+        <div class="col-xs-6 col-md-3">
+          <a href="#" class="thumbnail">
+          <img id= "img3" src="" alt="answer-1" onclick="nextQ('img3')">
+         </a>
+       </div>
+
+         <div class="col-xs-6 col-md-3">
+           <a href="#" class="thumbnail">
+           <img id= "img4" src="" alt="answer-1" onclick="nextQ('img4')">
+          </a>
+        </div>
+    </div>
   </div>
+  <div id = "results">
+    <center><p>Your style is <b><i>GLAMOROUS!</b></i></p>
+    <p><a href=“https://www.net-a-porter.com/gb/en/product/754795”> Click here to shop your style! </a></p>
 
-  <div class="row"><!-- Answer -->
 
-      <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-        <img id= "img1" src="images/1a.jpg" alt="answer-1" onclick="nextQ('img1')">
-       </a>
-     </div>
+    <p>Your style is <b><i>ACTIVE! </b></i></p>
+    <p><a href=“https://www.net-a-porter.com/gb/en/product/791478”> Click here to shop your style! </a></p>
 
-       <div class="col-xs-6 col-md-3">
-         <a href="#" class="thumbnail">
-         <img id= "img2" src="images/1b.jpg" alt="answer-1" onclick="nextQ('img2')">
-        </a>
-      </div>
 
-      <div class="col-xs-6 col-md-3">
-        <a href="#" class="thumbnail">
-        <img id= "img3" src="images/1c.jpg" alt="answer-1" onclick="nextQ('img3')">
-       </a>
-     </div>
+    <p>Your style is <b><i>WORKWEAR!</b></i></p>
+    <p><a href=“https://www.net-a-porter.com/gb/en/product/752325”> Click here to shop your style! </a></p>
 
-       <div class="col-xs-6 col-md-3">
-         <a href="#" class="thumbnail">
-         <img id= "img4" src="images/1d.jpg" alt="answer-1" onclick="nextQ('img4')">
-        </a>
-      </div>
+
+    <p>Your style is <b><i>HOMELY!</b></i></p>
+    <p><a href=“https://www.net-a-porter.com/gb/en/product/750865”> Click here to shop your style! </a></p>
+    </center>
+
+    <div class="col-xs-6 col-md-6 resultsPage">
+      <a href="#" class="thumbnail">
+      <img id= "img4" src="images/6a.jpg" alt="answer-1">
+     </a>
+    </div>
+
+
 
   </div>
 
@@ -66,31 +93,59 @@
 
       var questionNumb = 1;
 
-      function nextQ (name) {
+      var questions={
+        question1:"1) What would be your footwear of choice for a rainy winter day?",
+        question2:"2) How do you travel to work?",
+        question3:"3) What type of activities do you do?",
+        question4:"4) Where is your ideal holiday destination?",
+        question5:"5) What is your ideal evening?",
+      };
+      function calculateScore(name) {
         if (name === 'img1') {
             a = a + 1;
-            console.log('test----a'+a);
-
-        }
-        else if (name === 'img2') {
+            console.log('a'+a);
+        } else if (name === 'img2') {
             b = b + 1;
-            console.log('test----b'+b);
-
-        }
-        else if (name === 'img3') {
+            console.log('b'+b);
+        } else if (name === 'img3') {
             c = c + 1;
-            console.log('test----c'+c);
+            console.log('c'+c)
+        } else {
+            d = d + 1;
+            console.log('d'+d);
+        }
+
+      }
+      function nextQ (name) {
+
+        if (questionNumb <= 5) {
+          calculateScore(name);
 
         }
-        else {
-            d = d + 1;
-            console.log('test----d'+d);
-        }
-        questionNumb = questionNumb + 1;
 
         console.log('test--qnumber'+questionNumb);
 
-        document.getElementById('question').innerHTML = ''
+        questionNumb = questionNumb + 1;
+
+        if (questionNumb <= 5) {
+          qAndA();
+
+        } else {
+          document.getElementById('allMain').style.display = 'none';
+          document.getElementById('results').style.display = 'block';
+          finalResult();
+        }
+
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        qAndA();
+        document.getElementById('results').style.display = 'none';
+
+      }, false);
+
+      function qAndA () {
+        document.getElementById('question').innerHTML = questions['question'+questionNumb];
         document.getElementById('img1').src = 'images/'+questionNumb+'a.jpg';
         document.getElementById('img2').src = 'images/'+questionNumb+'b.jpg';
         document.getElementById('img3').src = 'images/'+questionNumb+'c.jpg';
@@ -98,13 +153,12 @@
 
       }
 
-      var questions={
-      	question2:"How do you travel to work?",
-      	question3:"What type of activities do you do?",
-      	question4:"Where is your ideal holiday destination?",
-      	question5:"What is your ideal evening?",
-      };
+      function finalResult () {
+        var total = Math.max(a, b, c, d));
+        if ()
 
+
+      }
 
   </script>
 </body>
