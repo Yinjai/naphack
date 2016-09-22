@@ -3,3 +3,26 @@
   margin-right: auto;
 
 }
+
+p, h1 {
+  font-family: GillSans, "Gill Sans MT" , Calibri, sans-serif;
+  text-align: center;
+}
+
+#question {
+  font-family: GillSans, "Gill Sans MT" , Calibri, sans-serif;
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+
+#logo {
+  width:30%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#container {
+  background-color: black;
+}
